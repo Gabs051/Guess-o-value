@@ -1,39 +1,43 @@
 import random
+import time
 
-print(f'Welcome to the game Guess o Value!!!')
-user = str(input('Enter your name: '))
+print(f'\033[1;36mWelcome to the game Guess o Value!!!\033[m')
+user = str(input('\033[1;32mEnter your name: \033[m'))
 
-level = int(input('\nSelect difficulty:\n(1)Easy\n(2)Hard\nDifficulty: '))
+level = int(input('\033[1;36mSelect difficulty:\n\033[1;32m(1)Easy\n\033[1;31m(2)Hard\n\033[1;36mDifficulty: \033[m'))
 while level <= 0 or level > 2:
-    print('There was an error choosing a value, enter again...')
-    level = int(input('\nSelect difficulty:\n(1)Easy\n(2)Hard\nDifficulty: '))
+    print('\n\033[1;33mThere was an error choosing a value, enter again...')
+    level = int(input('\033[1;36mSelect difficulty:\n\033[1;32m(1)Easy\n\033[1;31m(2)Hard\n\033[1;36mDifficulty: \033[m'))
 
-value_min = int(input('\nEnter a minimun value: '))
-value_max = int(input('Enter a maxinum value: '))
+value_min = int(input('\033[1;36mEnter a minimum value: \033[m'))
+value_max = int(input('\033[1;36mEnter a maximum value: \033[m'))
 counter = 0
 machine_value = random.randint(value_min, value_max)
 
 while True:
-    user_value = int(input(f'\nEnter a value between {value_min} to {value_max}: '))
-    
+    user_value = int(input(f'\033[1;36mEnter a value between {value_min} to {value_max}: \033[m'))
+
     while user_value < value_min or user_value > value_max:
-        print('There was an error choosing a value, enter again...')
-        user_value = int(input(f'Enter a value between {value_min} to {value_max}: '))
-    
+        print('\n\033[1;33mThere was an error choosing a value, enter again...\033[m')
+        user_value = int(input(f'\033[1;36mEnter a value between {value_min} to {value_max}: \033[m'))
+
     counter += 1
-    
+
     if level == 1:
         if user_value < machine_value:
-            print('\nThe value is higher...')
+            print('\n\033[1;37mThe value is higher...\033[m')
         elif user_value > machine_value:
-            print('\nThe value is smaller...')
+            print('\n\033[1;37mThe value is smaller...\033[m')
         elif user_value == machine_value:
-            print(f'\nCongratulations you guessed the value, {user}!!!, wait a few seconds to see your score...')
-            break
-    
-    if level == 2:
-        if user_value == machine_value:
-            print(f'\nCongratulations you guessed the value, {user}!!!, wait a few seconds to see your score...')
+            print(f'\n\033[1;32mCongratulations you guessed the value, {user}!!!, wait a few seconds to see your score...\033[m')
             break
 
-print(f'Here this your scores:\nAttempts: {counter}')
+    if level == 2:
+        if user_value == machine_value:
+            print(f'\n\033[1;32mCongratulations you guessed the value, {user}!!!, wait a few seconds to see your score...\033[m')
+            break
+
+for i in range(3, 0, -1):
+    print(f'\033[1;33m{i} Seconds...\033[m')
+    time.sleep(1)
+print(f'\033[1;36mHere this your scores:\nAttempts: \033[1;32m{counter}\033[m')
