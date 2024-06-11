@@ -3,14 +3,22 @@ from random import randint
 from time import sleep
 from tqdm import tqdm
 
+def funlevel():
+    level = int(input('\033[1;36mSelect difficulty:\n\033[1;32m(1)Easy\n\033[1;31m(2)Hard\n\033[1;36mDifficulty: \033[m'))
+    return level
+
+def funuser_value(value_min, value_max):
+    user_value = int(input(f'\033[1;36mEnter a value between {value_min} to {value_max}: \033[m'))
+    return user_value
+
 print(f'\033[1;36mWelcome to the game Guess o Value!!!\033[m')
 user = str(input('\033[1;32mEnter your name: \033[m'))
+level = int(funlevel())
 
-level = int(input('\033[1;36mSelect difficulty:\n\033[1;32m(1)Easy\n\033[1;31m(2)Hard\n\033[1;36mDifficulty: \033[m'))
 #user will enter a value according to the difficulty they want and will go through a check
 while level <= 0 or level > 2:
     print('\n\033[1;33mThere was an error choosing a value, enter again...')
-    level = int(input('\033[1;36mSelect difficulty:\n\033[1;32m(1)Easy\n\033[1;31m(2)Hard\n\033[1;36mDifficulty: \033[m'))
+    level = int(funlevel())
 
 value_min = int(input('\033[1;36mEnter a minimum value: \033[m'))
 value_max = int(input('\033[1;36mEnter a maximum value: \033[m'))
@@ -18,12 +26,12 @@ counter = 0
 machine_value = randint(value_min, value_max)
 
 while True:
-    user_value = int(input(f'\033[1;36mEnter a value between {value_min} to {value_max}: \033[m'))
+    user_value = int(funuser_value(value_min, value_max))
 
     #checking if the value is within the range that the user wanted
     while user_value < value_min or user_value > value_max:
         print('\n\033[1;33mThere was an error choosing a value, enter again...\033[m')
-        user_value = int(input(f'\033[1;36mEnter a value between {value_min} to {value_max}: \033[m'))
+        user_value = int(funuser_value(value_min, value_max))
 
     counter += 1
 
