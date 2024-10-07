@@ -28,11 +28,11 @@ Welcome to the Guess the Value game, a simple console-based game where you guess
 
  1. Enter yout name.
  2. Choose the difficulty level:<br>
-	 2.1. 1 for easy.
+	 2.1. 1 for easy.<br>
 	 2.2. 2 for hard.
  3. Enter the range by specifying a minimum and a maximum value:
  4. Start guessing the number! The game will let you know if your guess is within the range.<br>
-	 4.1.  In Easy mode, you'll get feedback whether the guess is too high or too low.
+	 4.1.  In Easy mode, you'll get feedback whether the guess is too high or too low.<br>
 	 4.2. In Hard mode, you'll need to guess without any hints.
  5. Once you've guessed the correct number, a progress bar will appear to calculate your score (number of attempts).
  6. Your final score (number of attempts) will be displayed.
